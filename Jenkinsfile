@@ -20,7 +20,7 @@ pipeline {
       steps {
           echo 'Testing...'
           sh '''
-          go test
+          go test -v
           '''
       }
     }
