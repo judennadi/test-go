@@ -23,7 +23,7 @@ type Fidelity struct {
 
 func NewZenith() *Zenith {
 	return &Zenith{
-		balance: 0,
+		balance: 10,
 	}
 }
 

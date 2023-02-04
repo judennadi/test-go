@@ -27,3 +27,4 @@ deploy:
   script:
     - echo "Deploying..."
     - ls bin
+    - ./bin/test-go
