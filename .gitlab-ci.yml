@@ -22,9 +22,10 @@ build:
     paths:
       - bin
 
-deploy:
+deploy-to-s3:
   stage: deploy
+  image:
+    name: amazon/aws-cli
+    entrypoint: [""]
   script:
-    - echo "Deploying..."
-    - ls bin
-    - ./bin/test-go
+    - aws --version
