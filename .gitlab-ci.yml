@@ -22,6 +22,7 @@ stages:
     paths:
       - bin
 
+
 deploy-to-s3:
   stage: deploy
   image:
