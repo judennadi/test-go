@@ -26,7 +26,7 @@ jobs:
 
   deploy-to-local-server:
     needs: test-and-build
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Download go-bin artifacts
         uses: actions/download-artifact@v3
@@ -36,7 +36,7 @@ jobs:
         run: |
           ls
           ls ~/.ssh
-          # scp -i ~/.ssh/auto bin-test hazard@192.168.43.29:~/
+          scp -i ~/.ssh/auto bin-test hazard@192.168.43.29:~/
 
 
 
