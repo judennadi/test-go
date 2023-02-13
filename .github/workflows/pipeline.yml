@@ -16,9 +16,11 @@ jobs:
         run: go test -v
       - name: Build go binaries
         run: |
-          ls
           go build -o bin-test .
-          ls
+          ls -l
+          chmod 777 bin-test
+          chown hazard bin-test
+          chgrp hazard bin-test
       - uses: actions/upload-artifact@v3
         with:
           name: go-bin
