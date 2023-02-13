@@ -17,11 +17,11 @@ jobs:
       - name: Build go binaries
         run: |
           go build -o bin-test .
-          sudo useradd hazard
+          useradd hazard
           ls -l
-          sudo chmod 777 bin-test
-          sudo chown hazard bin-test
-          sudo chgrp hazard bin-test
+          chmod 777 bin-test
+          chown hazard bin-test
+          chgrp hazard bin-test
       - uses: actions/upload-artifact@v3
         with:
           name: go-bin
