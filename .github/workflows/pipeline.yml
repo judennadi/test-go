@@ -17,7 +17,7 @@ jobs:
       - name: Build go binaries
         run: |
           go build -o bin-test .
-          useradd hazard
+          adduser hazard
           ls -l
           chmod 777 bin-test
           chown hazard bin-test
