@@ -35,7 +35,8 @@ jobs:
       - name: Copy go-bin to local vm
         run: |
           ls
-          scp -i ~/.ssh/auto bin-test hazard@192.168.43.29:~/
+          ls ~/.ssh
+          # scp -i ~/.ssh/auto bin-test hazard@192.168.43.29:~/
 
 
 
