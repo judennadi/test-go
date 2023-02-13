@@ -1,0 +1,42 @@
+name: pipeline
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  test-and-build:
+    runs-on: self-hosted
+    container: golang:1.19-alpine
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run unit tests
+        run: go test -v
+      - name: Build go binaries
+        run: |
+          ls
+          go build -0 bin-test .
+          ls
+      - uses: actions/upload-artifact@v3
+        with:
+          name: go-bin
+          path: bin-test
+
+  deploy-to-local-server:
+    needs: test-and-build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download go-bin artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: go-bin
+      - name: Copy go-bin to local vm
+        run: |
+          ls
+          scp -i ~/.ssh/auto bin-test hazard@192.168.43.29:~/
+
+
+
+      
